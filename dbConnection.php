@@ -1,13 +1,14 @@
 <?php
-$db_hostname="localhost";
-$db_user="root";
-$db_password="";
+$db_hostname = "localhost";
+$db_user = "root";
+$db_password = "";
 $db_name = "EClasses";
+
 //Creating Connection
-$conn=new mysqli($db_hostname,$db_user,$db_password,$db_name);
+$conn = new mysqli($db_hostname, $db_user, $db_password, $db_name);
+
 //Checking Connection
-if($conn->connect_error)
-{
-    die('connection failed');
+if ($conn->connect_error) {
+    die('connection failed: ' . $conn->connect_error);
 }
 ?>

@@ -14,7 +14,7 @@ include('./dbConnection.php');
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
-    <link rel="shortcut icon" type="image/png" href="images/logo.png" />
+    <!-- <link rel="shortcut icon" type="image/png" href="images/logo.png" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -249,14 +249,16 @@ include('./dbConnection.php');
          if($result->num_rows>0){
           while($row=$result->fetch_assoc()){
             $course_id=$row['course_id'];
+            $img_path = str_replace('..','.',$row['course_img']);
+            $final_img = file_exists($img_path) ? $img_path : 'https://placehold.co/400x300?text=Course+Image';
             echo '  <article class="course">
             <div class="course_image">
-               <img src="'.str_replace('..','.',$row['course_img']).'" class="responsive"  />
+               <img src="'.$final_img.'" class="responsive"  />
             </div>
             <div class="course_info">
               <h4>'.$row['course_name'].'</h4>
             <p>'.$row['course_desc'].'</p>
-            <a href="../Major/courseDetails.php?course_id='.$course_id.'" class="btn btn-secondary">Enroll Now</a>
+            <a href="courseDetails.php?course_id='.$course_id.'" class="btn btn-secondary">Enroll Now</a>
             </div>
           </article>';
           }
@@ -276,7 +278,7 @@ include('./dbConnection.php');
 
   <article class="testimonial swiper-slide">
       <div class="avatar">
-       <img src="images/avatar4.jpg"/>
+       <img src="https://i.pravatar.cc/150?img=4"/>
       </div>
       <div class="testimonial_info">
         <h5>Naveen Gupta</h5>
@@ -290,7 +292,7 @@ include('./dbConnection.php');
     
     <article class="testimonial swiper-slide">
       <div class="avatar">
-       <img src="images/avatar2.jpg"/>
+       <img src="https://i.pravatar.cc/150?img=2"/>
       </div>
       <div class="testimonial_info">
         <h5>Nikhil Dhameja</h5>
@@ -303,7 +305,7 @@ include('./dbConnection.php');
 
     <article class="testimonial swiper-slide">
       <div class="avatar">
-       <img src="images/avatar1.jpg"/>
+       <img src="https://i.pravatar.cc/150?img=1"/>
       </div>
       <div class="testimonial_info">
         <h5>Pratyush Dubey</h5>
@@ -318,7 +320,7 @@ include('./dbConnection.php');
     
     <article class="testimonial swiper-slide">
       <div class="avatar">
-       <img src="images/avatar3.jpg"/>
+       <img src="https://i.pravatar.cc/150?img=3"/>
       </div>
       <div class="testimonial_info">
         <h5>Kartik Maheshwari</h5>
@@ -332,7 +334,7 @@ include('./dbConnection.php');
     
     <article class="testimonial swiper-slide">
       <div class="avatar">
-       <img src="images/avatar5.jpg"/>
+       <img src="https://i.pravatar.cc/150?img=5"/>
       </div>
       <div class="testimonial_info">
         <h5>Joe Root</h5> 
